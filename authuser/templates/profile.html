@@ -1,0 +1,43 @@
+{% extends "main.html" %} {% block content %}
+
+<div class="profilecontainer">
+  <div class="profilecard">
+    <div class="profiletop">
+      <div class="profileimage">
+        {{request.user.first_name|first|upper}}{{request.user.last_name|first|upper}}
+      </div>
+
+      <h1>{{ request.user.first_name }} {{ request.user.last_name }}</h1>
+      <p>{{ request.user.email }}</p>
+    </div>
+
+    <div class="profileinfo">
+      <div class="profilerow">
+        <span>Username</span>
+        <h4>{{ request.user.username }}</h4>
+      </div>
+
+      <div class="profilerow">
+        <span>First Name</span>
+        <h4>{{ request.user.first_name }}</h4>
+      </div>
+
+      <div class="profilerow">
+        <span>Last Name</span>
+        <h4>{{ request.user.last_name }}</h4>
+      </div>
+
+      <div class="profilerow">
+        <span>Email</span>
+        <h4>{{ request.user.email }}</h4>
+      </div>
+    </div>
+    <div class="profilebuttons">
+      <button>Edit Profile</button>
+      <a href="{% url 'reset_pasw' %}" class="profilebtn"> Change Password </a>
+      <button>Logout</button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

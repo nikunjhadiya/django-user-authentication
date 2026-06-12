@@ -1,0 +1,53 @@
+{% extends "main.html" %} {% block content %}
+
+<div class="registercontainer">
+  <div class="registercard">
+    <h1>Reset Password</h1>
+
+    {% for message in messages %}
+    <h4>{{ message }}</h4>
+    {% endfor %} {% if new %}
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <label>New Password</label>
+      <input
+        type="password"
+        name="new_pasw"
+        placeholder="Enter New Password"
+        required
+      />
+
+      <label>Confirm Password</label>
+      <input
+        type="password"
+        name="confirm_pasw"
+        placeholder="Confirm Password"
+        required
+      />
+
+      <button type="submit">Update Password</button>
+    </form>
+
+    {% else %}
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <label>Old Password</label>
+      <input
+        type="password"
+        name="old_pasw"
+        placeholder="Enter Old Password"
+        required
+      />
+
+      <button type="submit">Verify Password</button>
+    </form>
+
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

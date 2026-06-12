@@ -1,0 +1,24 @@
+{% extends "main.html" %} {% block content %}
+
+<div class="registercontainer">
+  <div class="registercard">
+    <h1>Login User</h1>
+
+    {% if messages %} {% for i in messages %}
+    <h4>{{ i }}</h4>
+    {% endfor %} {% endif %}
+    <form method="POST">
+      {% csrf_token %}
+
+      <label>Username</label>
+      <input type="text" name="uname" required />
+
+      <label>Password</label>
+      <input type="password" name="pasw" required />
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

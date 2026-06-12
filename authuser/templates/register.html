@@ -1,0 +1,35 @@
+{% extends "main.html" %} {% block content %}
+
+<div class="registercontainer">
+  <div class="registercard">
+    <h1>Register User</h1>
+
+    {% if error %}
+    <h4>{{ error }}</h4>
+    {% endif %} {% if messages %} {% for i in messages %}
+    <h4>{{ i }}</h4>
+    {% endfor %} {% endif %}
+    <form method="POST">
+      {% csrf_token %}
+
+      <label>First Name</label>
+      <input type="text" name="fname" required />
+
+      <label>Last Name</label>
+      <input type="text" name="lname" required />
+
+      <label>Email</label>
+      <input type="email" name="email" required />
+
+      <label>Username</label>
+      <input type="text" name="uname" required />
+
+      <label>Password</label>
+      <input type="password" name="pasw" required />
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

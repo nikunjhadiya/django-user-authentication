@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    padding-top: 70px;
+    background-color: #ffffff;
+}
+
+/* Navbar */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    background-color: #222;
+    z-index: 1000;
+}
+
+.logo h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.links a:hover {
+    background-color: #444;
+}
+
+.links a.active {
+    background-color: white;
+    color: #222;
+}
+
+/* Register */
+
+.registercontainer {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.registercard {
+    width: 450px;
+    max-width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+.registercard h1 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #222;
+    font-size: 28px;
+}
+
+.registercard h4 {
+    text-align: center;
+    color: #dc3545;
+    margin-bottom: 8px;
+}
+
+.registercard label {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: 600;
+    color: #333;
+}
+
+.registercard input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 8px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+}
+
+.registercard button {
+    width: 100%;
+    padding: 8px;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.registercard button:hover {
+    opacity: 0.9;
+}
+
+/* Profile */
+
+.profilecontainer {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.profilecard {
+    width: 500px;
+    max-width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+.profiletop {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.profileimage {
+    width: 75px;
+    height: 75px;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    background-color: white;
+    color: #222;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profiletop h1 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.profiletop p {
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+.profileinfo {
+    padding: 15px 25px;
+}
+
+.profilerow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.profilerow:last-child {
+    border-bottom: none;
+}
+
+.profilerow span {
+    color: gray;
+    font-weight: 600;
+}
+
+.profilerow h4 {
+    color: #222;
+    font-weight: 500;
+}
+
+/* Profile Buttons */
+
+.profilebuttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 25px 0 30px;
+}
+
+.profilebuttons button,
+.profilebuttons a {
+    padding: 8px 17px;
+    background: #fff;
+    color: #444;
+    text-decoration: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    /* transition: all 0.3s ease; */
+}
+
+.profilebuttons button:hover,
+.profilebuttons a:hover {
+    background: #f7f7f7;
+    border-color: #bfbfbf;
+    /* transform: translateY(-2px); */
+}
