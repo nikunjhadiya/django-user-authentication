@@ -127,6 +127,22 @@ nav {
     opacity: 0.9;
 }
 
+.forgetlink {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.forgetlink a {
+    text-decoration: none;
+    color: #222;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.forgetlink a:hover {
+    text-decoration: underline;
+}
+
 /* Profile */
 
 .profilecontainer {
@@ -234,4 +250,184 @@ nav {
     background: #f7f7f7;
     border-color: #bfbfbf;
     /* transform: translateY(-2px); */
+}
+
+/* Update Profile */
+
+.updatecontainer {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.updatecard {
+    width: 450px;
+    max-width: 100%;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+.updatecard h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.updatecard h4 {
+    text-align: center;
+    color: green;
+    margin-bottom: 10px;
+}
+
+.updatecard label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.updatecard input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.updatecard button {
+    width: 100%;
+    padding: 10px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.updatecard button:hover {
+    opacity: 0.9;
+}
+
+/* About Page */
+
+.aboutcontainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.abouthero {
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #222, #444);
+    color: white;
+}
+
+.abouthero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.abouthero p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.aboutbtn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: white;
+    color: #222;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.aboutstats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.statcard {
+    background: white;
+    text-align: center;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.statcard h2 {
+    font-size: 35px;
+    color: #222;
+}
+
+.aboutsection {
+    margin-top: 40px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.aboutsection h2 {
+    margin-bottom: 15px;
+}
+
+.aboutsection p {
+    line-height: 1.8;
+    color: #555;
+}
+
+.featuregrid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.featurecard {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.featurecard h3 {
+    margin-bottom: 10px;
+}
+
+.techsection {
+    margin-top: 40px;
+}
+
+.techsection h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.techgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.techcard {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    border-radius: 10px;
+    font-weight: 600;
 }

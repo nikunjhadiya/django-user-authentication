@@ -31,7 +31,12 @@
       class="{% if request.path == '/auth/register/' %}active{% endif %}"
       >REGISTER</a
     >
-    <a href="">ABOUT</a>
+    <a
+      href="{% url 'about' %}"
+      class="{% if request.path == '/auth/about/' %}active{% endif %}"
+    >
+      ABOUT
+    </a>
     {% endif %}
   </div>
 </nav>

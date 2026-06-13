@@ -1,0 +1,83 @@
+{% extends "main.html" %} {% block content %}
+
+<div class="aboutcontainer">
+  <div class="abouthero">
+    <h1>Manage Your Tasks Smarter</h1>
+
+    <p>
+      A modern ToDo application designed to help you organize, prioritize, and
+      track your daily activities with ease.
+    </p>
+
+    <a href="{% url 'register' %}" class="aboutbtn"> Get Started </a>
+  </div>
+
+  <div class="aboutstats">
+    <div class="statcard">
+      <h2>100%</h2>
+      <p>Task Tracking</p>
+    </div>
+
+    <div class="statcard">
+      <h2>24/7</h2>
+      <p>Accessibility</p>
+    </div>
+
+    <div class="statcard">
+      <h2>Secure</h2>
+      <p>User Accounts</p>
+    </div>
+
+    <div class="statcard">
+      <h2>Fast</h2>
+      <p>Performance</p>
+    </div>
+  </div>
+
+  <div class="aboutsection">
+    <h2>About The Project</h2>
+
+    <p>
+      ToDo is a productivity-focused task management system built using Django.
+      It allows users to create, manage, update, and track their tasks
+      efficiently. The platform provides a clean interface and secure
+      authentication system to improve productivity and organization.
+    </p>
+  </div>
+
+  <div class="featuregrid">
+    <div class="featurecard">
+      <h3>Task Management</h3>
+      <p>Create and organize tasks quickly and efficiently.</p>
+    </div>
+
+    <div class="featurecard">
+      <h3>User Authentication</h3>
+      <p>Secure login, registration, profile and password management.</p>
+    </div>
+
+    <div class="featurecard">
+      <h3>Progress Tracking</h3>
+      <p>Monitor completed and pending tasks in one place.</p>
+    </div>
+
+    <div class="featurecard">
+      <h3>Responsive Design</h3>
+      <p>Works smoothly on desktop, tablet and mobile devices.</p>
+    </div>
+  </div>
+
+  <div class="techsection">
+    <h2>Technology Stack</h2>
+
+    <div class="techgrid">
+      <div class="techcard">Python</div>
+      <div class="techcard">Django</div>
+      <div class="techcard">HTML</div>
+      <div class="techcard">CSS</div>
+      <div class="techcard">SQLite</div>
+      <div class="techcard">Authentication</div>
+    </div>
+  </div>
+</div>
+{% endblock %}

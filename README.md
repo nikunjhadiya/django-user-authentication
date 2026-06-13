@@ -1,6 +1,6 @@
 # Django User Authentication System
 
-A Django User Authentication System built using Django's built-in authentication framework. This project demonstrates user registration, login, logout, profile management, password reset, session handling, and route protection using Django Authentication.
+A Django User Authentication System built using Django's built-in authentication framework. This project demonstrates user registration, login, logout, profile management, password reset, forgot password functionality, profile updates, session handling, and route protection using Django Authentication.
 
 ---
 
@@ -10,11 +10,14 @@ A Django User Authentication System built using Django's built-in authentication
 - User Login
 - User Logout
 - User Profile Page
-- Password Reset
+- Edit Profile
+- Reset Password
+- Forgot Password
 - Session Authentication
 - Django Messages Framework
 - Protected Routes using Login Required Decorator
 - Responsive UI Design
+- Professional About Page
 
 ---
 
@@ -39,7 +42,10 @@ myproject/
 │   │   ├── login.html
 │   │   ├── register.html
 │   │   ├── profile.html
-│   │   └── reset_pasw.html
+│   │   ├── reset_pasw.html
+│   │   ├── forget_pasw.html
+│   │   ├── update.html
+│   │   └── about.html
 │   │
 │   ├── views.py
 │   ├── urls.py
@@ -59,12 +65,6 @@ myproject/
 ├── templates/
 │   ├── main.html
 │   └── nav.html
-│
-├── screenshots/
-│   ├── login.png
-│   ├── register.png
-│   ├── profile.png
-│   └── resetpassword.png
 │
 ├── db.sqlite3
 ├── manage.py
@@ -86,7 +86,7 @@ Users can create a new account using:
 - Username
 - Password
 
-Validation:
+**Validation**
 
 - Username must be unique
 - Password is securely hashed before storing
@@ -115,31 +115,77 @@ After login, users can view:
 
 ---
 
+### Edit Profile
+
+Users can update:
+
+- First Name
+- Last Name
+- Email
+
+Username remains visible and cannot be modified.
+
+---
+
 ### Password Reset
 
-Step 1:
+#### Step 1
 
 Verify Old Password
 
-Step 2:
+#### Step 2
 
 Enter New Password
 
-Step 3:
+#### Step 3
 
 Confirm New Password
 
-Validation:
+**Validation**
 
 - Old password must be correct
-- New password and Confirm password must match
+- New password and confirm password must match
 - New password cannot be the same as old password
+
+---
+
+### Forgot Password
+
+#### Step 1
+
+Verify Username
+
+#### Step 2
+
+Enter New Password
+
+#### Step 3
+
+Confirm New Password
+
+**Validation**
+
+- Username must exist
+- New password and confirm password must match
+- Password is securely hashed before saving
 
 ---
 
 ### Logout
 
 Logout destroys the active user session and redirects users to the login page.
+
+---
+
+## About Page
+
+The application includes a professional About Page featuring:
+
+- Project Overview
+- Task Management Features
+- Technology Stack
+- Statistics Cards
+- Developer Information
 
 ---
 
@@ -150,6 +196,8 @@ Logout destroys the active user session and redirects users to the login page.
 - Login Required Decorator
 - Password Hashing
 - Password Validation
+- Forgot Password Workflow
+- Profile Update Functionality
 - Django Messages Framework
 - Template Inheritance
 - URL Routing
@@ -161,33 +209,13 @@ Logout destroys the active user session and redirects users to the login page.
 
 This project uses SQLite3 as the default database.
 
-Important tables:
+### Important Tables
 
 - auth_user
 - django_session
 - django_admin_log
 - django_content_type
 - django_migrations
-
----
-
-## Screenshots
-
-### Login Page
-
-![Login Page](screenshots/login.png)
-
-### Register Page
-
-![Register Page](screenshots/register.png)
-
-### Profile Page
-
-![Profile Page](screenshots/profile.png)
-
-### Reset Password Page
-
-![Reset Password Page](screenshots/resetpassword.png)
 
 ---
 
@@ -213,13 +241,13 @@ python -m venv myenv
 
 ### Activate Virtual Environment
 
-Windows:
+**Windows**
 
 ```bash
 myenv\Scripts\activate
 ```
 
-Linux / Mac:
+**Linux / Mac**
 
 ```bash
 source myenv/bin/activate
@@ -253,10 +281,9 @@ http://127.0.0.1:8000/
 
 ## Future Enhancements
 
-- Edit Profile
 - Upload Profile Picture
 - Email Verification
-- Forgot Password via Email
+- Forgot Password via Email OTP
 - Todo CRUD Operations
 - Admin Dashboard
 - User Roles and Permissions
@@ -275,6 +302,7 @@ user-management
 django-authentication
 sqlite
 web-development
+todo-app
 ```
 
 ---
@@ -283,7 +311,7 @@ web-development
 
 ### Nikunj Hadiya
 
-Python Developer | Django Developer
+**Python Developer | Django Developer**
 
 Portfolio:
 https://nikunjhadiya.netlify.app/
@@ -292,6 +320,8 @@ LinkedIn:
 https://www.linkedin.com/in/nikunjhadiya/
 
 GitHub:
-https://github.com/nikunjhadiya
+https://github.com/nikunjhadiya/
+
+---
 
 ⭐ If you found this project useful, consider giving it a star on GitHub.

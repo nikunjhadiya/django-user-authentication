@@ -95,3 +95,61 @@ def reset_pasw(request):
             return redirect('profile')
 
     return render(request,'reset_pasw.html')
+
+
+def forget_pasw(request):
+    if request.method == 'POST':
+
+        # Verify Username
+        if 'uname' in request.POST:
+            uname = request.POST['uname']
+            try:
+                user = User.objects.get(username=uname)
+                request.session['fp_user'] = user.username
+                return render(request,'forget_pasw.html',{'new': True})
+            except User.DoesNotExist:
+                messages.error(request,'User does not exist..!!')
+                return redirect('forget_pasw')
+
+        # Update Password
+        if 'new_password' in request.POST:
+            new_password = request.POST['new_password']
+            confirm_password = request.POST['confirm_password']
+            if new_password != confirm_password:
+                messages.error(request,'Passwords do not match..!!')
+                return render(request,'forget_pasw.html',{'new': True})
+            username = request.session.get('fp_user')
+
+            if not username:
+                messages.error(request,'Session expired..!!')
+                return redirect('forget_pasw')
+            u = User.objects.get(username=username)
+            u.set_password(new_password)
+            u.save()
+            del request.session['fp_user']
+            messages.success(request,'Password changed successfully..!')
+            return redirect('login_')
+    return render(request, 'forget_pasw.html')
+
+# update profile
+def update(request):
+    user = User.objects.get(username=request.user)
+    if request.method == 'POST':
+        user.first_name = request.POST['fname']
+        user.last_name = request.POST['lname']
+        user.email = request.POST['email']
+        user.save()
+        messages.success(request,'Profile updated successfully..!')
+        return redirect('profile')
+    return render(request,'update.html',{'data':user})
+
+
+# logout profile page
+def logout_(request):
+    logout(request)
+    messages.success(request, 'Logout successful..!!')
+    return redirect('login_')
+
+# about page
+def about(request):
+    return render(request,'about.html')
