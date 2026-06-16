@@ -1,0 +1,42 @@
+{% extends "main.html" %} {% block content %}
+<div class="trashcontainer">
+  <div class="trashheader">
+    <h1>Trash</h1>
+
+    <div class="trashbuttons">
+      <a href="{% url 'trestoreall' %}" class="restoreallbtn"> Restore All </a>
+
+      <a href="{% url 'tdeleteall' %}" class="deleteperbtn">
+        Delete All Permanently
+      </a>
+    </div>
+  </div>
+
+  <div class="tasklist">
+    {% for i in data %}
+
+    <div class="taskcard">
+      <div class="taskleft">
+        <h3>{{ i.title }}</h3>
+        <p>{{ i.desc }}</p>
+      </div>
+
+      <div class="taskright">
+        <a href="{% url 'trestore' i.id %}" class="restorebtn"> Restore </a>
+
+        <a href="{% url 'tdelete' i.id %}" class="deletetrashbtn"> Delete </a>
+      </div>
+    </div>
+
+    {% empty %}
+
+    <div class="emptytask">
+      <h2>Trash is Empty</h2>
+      <p>No deleted tasks found.</p>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

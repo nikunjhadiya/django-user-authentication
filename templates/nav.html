@@ -13,7 +13,12 @@
     >
     <a href="">ADD</a>
     <a href="">COMPLETED</a>
-    <a href="">TRASH</a>
+    <a
+      href="{% url 'trash' %}"
+      class="{% if request.resolver_match.url_name == 'trash' %}active{% endif %}"
+    >
+      TRASH
+    </a>
     <a href="{% url 'logout_' %}"> LOGOUT </a>
     <a
       href="{% url 'profile' %}"

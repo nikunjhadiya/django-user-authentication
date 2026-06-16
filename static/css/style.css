@@ -431,3 +431,222 @@ nav {
     border-radius: 10px;
     font-weight: 600;
 }
+
+/* Home Page */
+
+.taskcontainer {
+    width: 95%;
+    max-width: 1300px;
+    margin: 30px auto;
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.taskformcard {
+    width: 35%;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .12);
+    position: sticky;
+    top: 90px;
+}
+
+.taskformcard h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.taskformcard label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.taskformcard input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.taskformcard button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #222;
+    color: white;
+    cursor: pointer;
+}
+
+.tasklist {
+    width: 65%;
+}
+
+.taskcard {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, .08);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.taskleft {
+    flex: 1;
+    min-width: 0;
+}
+
+.taskleft h3 {
+    color: #222;
+    margin-bottom: 8px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.taskleft p {
+    color: #666;
+    line-height: 1.6;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.deleteallbox {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.deleteallbtn {
+    text-decoration: none;
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.emptytask {
+    background: white;
+    padding: 50px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, .08);
+}
+
+.emptytask h2 {
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.emptytask p {
+    color: #777;
+}
+
+/* Trash Page */
+
+.trashcontainer {
+    width: 80%;
+    max-width: 1300px;
+    margin: 30px auto;
+}
+
+.trashheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.trashheader h1 {
+    color: #222;
+}
+
+.trashbuttons {
+    display: flex;
+    gap: 12px;
+}
+
+.restoreallbtn {
+    text-decoration: none;
+    background: #222;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 25px;
+}
+
+.deleteperbtn {
+    text-decoration: none;
+    background: #dc3545;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 25px;
+}
+
+.deletetaskbtn,
+.restorebtn,
+.deletetrashbtn {
+    padding: 8px 17px;
+    background: #fff;
+    color: #444;
+    text-decoration: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.deletetaskbtn:hover,
+.restorebtn:hover,
+.deletetrashbtn:hover {
+    background: #f7f7f7;
+    border-color: #bfbfbf;
+}
+
+.taskright {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.trashcontainer .tasklist {
+    width: 100%;
+}
+
+.trashcontainer .taskcard {
+    width: 100%;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .taskcontainer {
+        flex-direction: column;
+    }
+
+    .taskformcard,
+    .tasklist {
+        width: 100%;
+    }
+
+    .taskformcard {
+        position: static;
+    }
+
+    .taskcard {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .trashheader {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

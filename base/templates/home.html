@@ -1,5 +1,51 @@
 {% extends "main.html" %} {% block content %}
-<center>
-  <h1>Home Page</h1>
-</center>
+
+<div class="taskcontainer">
+  <div class="taskformcard">
+    <h1>My Tasks</h1>
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <label>Task Title</label>
+      <input type="text" name="title" maxlength="100" required />
+
+      <label>Description</label>
+      <input type="text" name="desc" maxlength="300" required />
+
+      <button type="submit">Add Task</button>
+    </form>
+
+    <div class="deleteallbox">
+      <a href="{% url 'deleteall' %}" class="deleteallbtn">
+        Delete All Tasks
+      </a>
+    </div>
+  </div>
+
+  <div class="tasklist">
+    {% for i in data %}
+
+    <div class="taskcard">
+      <div class="taskleft">
+        <h3>{{ i.title }}</h3>
+        <p>{{ i.desc }}</p>
+      </div>
+
+      <div class="taskright">
+        <a href="{% url 'delete' i.id %}" class="deletetaskbtn"> Delete </a>
+      </div>
+    </div>
+
+    {% empty %}
+
+    <div class="emptytask">
+      <h2>No Tasks Available</h2>
+      <p>Add your first task above.</p>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+
 {% endblock %}
