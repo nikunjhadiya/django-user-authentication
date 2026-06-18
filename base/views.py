@@ -1,8 +1,21 @@
 from django.shortcuts import render,redirect
 from .models import TaskModel
+from django.db.models import Q
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def home(request):
-    data = TaskModel.objects.filter(host = request.user,is_delete = False)
+    if 'q' in request.GET:
+        q = request.GET['q']
+        data = TaskModel.objects.filter(Q(host = request.user) & Q(is_delete = False) & (Q(title__icontains = q) | Q(desc__icontains = q)))
+        if len(data) == 0:
+            messages.error(request,'No Data Found')
+            # return redirect(home)
+    else:
+        data = TaskModel.objects.filter(host = request.user,is_delete = False)
+    
     if request.method =='POST':
         TaskModel.objects.create(
         title = request.POST['title'],

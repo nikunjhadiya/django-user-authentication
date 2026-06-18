@@ -24,8 +24,17 @@
   </div>
 
   <div class="tasklist">
-    {% for i in data %}
+    <form method="GET" class="searchform">
+      <input
+        type="text"
+        name="q"
+        placeholder="Search tasks..."
+        value="{{ request.GET.q }}"
+      />
+      <button type="submit">Search</button>
+    </form>
 
+    {% for i in data %}
     <div class="taskcard">
       <div class="taskleft">
         <h3>{{ i.title }}</h3>
@@ -33,17 +42,18 @@
       </div>
 
       <div class="taskright">
-        <a href="{% url 'delete' i.id %}" class="deletetaskbtn"> Delete </a>
+        <a href="{% url 'delete' i.id %}" class="deletetaskbtn">Delete</a>
       </div>
     </div>
-
     {% empty %}
-
     <div class="emptytask">
+      {% if request.GET.q %}
+      <h2>No Data Found</h2>
+      {% else %}
       <h2>No Tasks Available</h2>
       <p>Add your first task above.</p>
+      {% endif %}
     </div>
-
     {% endfor %}
   </div>
 </div>

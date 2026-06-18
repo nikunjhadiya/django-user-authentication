@@ -1,11 +1,30 @@
-{% extends "main.html" %} {% block content %}
-
+{% extends "main.html" %} {% block content %} {% load static %}
 <div class="profilecontainer">
   <div class="profilecard">
     <div class="profiletop">
       <div class="profileimage">
-        {{request.user.first_name|first|upper}}{{request.user.last_name|first|upper}}
+        <img src="{{ profile.image.url }}" alt="Profile" />
       </div>
+
+      <form
+        action="{% url 'change_image' %}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+
+        <input
+          type="file"
+          name="image"
+          id="imageinput"
+          hidden
+          onchange="this.form.submit()"
+        />
+
+        <label for="imageinput" class="changebtn">
+          <img src="/static/images/camera.png" alt="Camera" />
+        </label>
+      </form>
 
       <h1>{{ request.user.first_name }} {{ request.user.last_name }}</h1>
       <p>{{ request.user.email }}</p>

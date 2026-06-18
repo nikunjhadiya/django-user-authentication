@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
+from .models import Profile
 
 # register user
 def register(request):
@@ -28,6 +29,7 @@ def register(request):
                 username=username,
                 password=password,
             )
+            Profile.objects.create(user=a)
     return render(request, "register.html")
 
 # login user
@@ -54,7 +56,13 @@ def logout_(request):
 # profile user
 @login_required
 def profile(request):
-    return render(request,'profile.html')
+    profile = Profile.objects.get(user=request.user)
+
+    return render(
+        request,
+        'profile.html',
+        {'profile': profile}
+    )
 
 # Reset password
 @login_required
@@ -132,17 +140,50 @@ def forget_pasw(request):
     return render(request, 'forget_pasw.html')
 
 # update profile
+@login_required
 def update(request):
-    user = User.objects.get(username=request.user)
+    user = request.user
+    profile = Profile.objects.get(user=user)
+
     if request.method == 'POST':
+
         user.first_name = request.POST['fname']
         user.last_name = request.POST['lname']
         user.email = request.POST['email']
         user.save()
-        messages.success(request,'Profile updated successfully..!')
-        return redirect('profile')
-    return render(request,'update.html',{'data':user})
 
+        if 'image' in request.FILES:
+            profile.image = request.FILES['image']
+            profile.save()
+
+        messages.success(
+            request,
+            'Profile updated successfully..!'
+        )
+
+        return redirect('profile')
+
+    return render(
+        request,
+        'update.html',
+        {
+            'data': user,
+            'profile': profile
+        }
+    )
+
+@login_required
+def change_image(request):
+    profile = Profile.objects.get(user=request.user)
+
+    if request.method == "POST":
+        if 'image' in request.FILES:
+            profile.image = request.FILES['image']
+            profile.save()
+
+        return redirect('profile')
+
+    return redirect('profile')
 
 # logout profile page
 def logout_(request):

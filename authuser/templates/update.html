@@ -7,8 +7,7 @@
     {% for msg in messages %}
     <h4>{{ msg }}</h4>
     {% endfor %}
-
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
 
       <label>First Name</label>
@@ -22,6 +21,16 @@
 
       <label>Username</label>
       <input type="text" value="{{ data.username }}" readonly />
+
+      {% comment %} <label>Current Profile Picture</label>
+
+      <div class="updateimage">
+        <img src="{{ profile.image.url }}" alt="Profile" />
+      </div>
+      {% endcomment %}
+
+      <label>Change Profile Picture</label>
+      <input type="file" name="image" />
 
       <button type="submit">Update Profile</button>
     </form>
